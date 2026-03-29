@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本語タイピングゲーム</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>日本語タイピングゲーム</h1>
+
+    <div class="level-selector">
+      <button class="level-btn active" data-level="easy">かんたん</button>
+      <button class="level-btn" data-level="normal">ふつう</button>
+      <button class="level-btn" data-level="hard">むずかしい</button>
+    </div>
+
+    <div class="stats">
+      <span>WPM: <strong id="wpm">0</strong></span>
+      <span>正確率: <strong id="accuracy">100</strong>%</span>
+      <span>時間: <strong id="timer">0</strong>秒</span>
+    </div>
+
+    <div class="text-display" id="text-display"></div>
+
+    <input
+      type="text"
+      id="input-box"
+      placeholder="ここに入力してください..."
+      disabled
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    />
+
+    <div class="buttons">
+      <button id="start-btn">スタート</button>
+      <button id="reset-btn">リセット</button>
+    </div>
+
+    <div id="result" class="result hidden"></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
