@@ -104,6 +104,29 @@ h1 {
   border-radius: 2px;
 }
 
+.romaji-display {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: 8px 24px 12px;
+  min-height: 28px;
+  word-break: break-all;
+  color: #666;
+}
+
+.romaji-char.correct {
+  color: #4ecca3;
+}
+
+.romaji-char.incorrect {
+  color: #e94560;
+}
+
+.romaji-char.current {
+  background: #e94560;
+  color: #fff;
+  border-radius: 2px;
+}
+
 #input-box {
   width: 100%;
   padding: 14px 18px;
