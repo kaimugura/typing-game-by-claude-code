@@ -38,6 +38,7 @@ let timerInterval = null;
 let totalTyped = 0;
 let correctTyped = 0;
 let isRunning = false;
+let isComposing = false;
 
 const textDisplay = document.getElementById('text-display');
 const inputBox = document.getElementById('input-box');
@@ -61,7 +62,14 @@ document.querySelectorAll('.level-btn').forEach(btn => {
 startBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetGame);
 
-inputBox.addEventListener('input', handleInput);
+inputBox.addEventListener('compositionstart', () => { isComposing = true; });
+inputBox.addEventListener('compositionend', () => {
+  isComposing = false;
+  handleInput();
+});
+inputBox.addEventListener('input', () => {
+  if (!isComposing) handleInput();
+});
 
 function getRandomText(level) {
   const arr = texts[level];
@@ -114,7 +122,7 @@ function resetGame() {
   startTime = null;
 }
 
-function handleInput(e) {
+function handleInput() {
   if (!isRunning) return;
   const typed = inputBox.value;
   totalTyped++;
